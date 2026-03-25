@@ -12,6 +12,13 @@
             height: 100vh;
             background: #000;
             color: white;
+            flex-direction: column;
+            gap: 20px;
+        }
+        #scoreBoard {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
         }
         #game {
             border: 2px solid #fff;
@@ -19,6 +26,7 @@
             height: 400px;
             position: relative;
             overflow: hidden;
+            background: #111;
         }
         .block {
             width: 20px;
@@ -26,22 +34,50 @@
             position: absolute;
             background: red;
         }
+        #controls {
+            font-size: 14px;
+            text-align: center;
+            color: #999;
+        }
     </style>
 </head>
 <body>
+    <h1>TETRIS</h1>
+    <div id="scoreBoard">Score: 0</div>
     <div id="game"></div>
+    <div id="controls">Use arrow keys to move, Space to rotate</div>
     <script>
-        // Tetris game logic will go here
+        // Enhanced Tetris game logic
         const gameElement = document.getElementById('game');
+        const scoreBoardElement = document.getElementById('scoreBoard');
         let score = 0;
         let board = Array.from(Array(20), () => Array(10).fill(0)); // 20 rows, 10 columns
 
+        function updateScore(points) {
+            score += points;
+            scoreBoardElement.textContent = `Score: ${score}`;
+        }
+
         function draw() {
             // Drawing logic for Tetris blocks
+            gameElement.innerHTML = ''; // Clear the game board
+            // Render blocks based on board state
         }
 
         function update() {
             // Update game state
+            // Move blocks down
+        }
+
+        function handleInput(event) {
+            // Handle keyboard input for movement and rotation
+            if (event.key === 'ArrowLeft') {
+                // Move left
+            } else if (event.key === 'ArrowRight') {
+                // Move right
+            } else if (event.key === ' ') {
+                // Rotate
+            }
         }
 
         function gameLoop() {
@@ -49,6 +85,9 @@
             draw();
             requestAnimationFrame(gameLoop);
         }
+
+        // Event listeners
+        document.addEventListener('keydown', handleInput);
 
         gameLoop(); // Start the game
     </script>

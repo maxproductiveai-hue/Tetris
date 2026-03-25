@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Game</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #000;
+            color: white;
+        }
+        #game {
+            border: 2px solid #fff;
+            width: 200px;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+        .block {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="game"></div>
+    <script>
+        // Tetris game logic will go here
+        const gameElement = document.getElementById('game');
+        let score = 0;
+        let board = Array.from(Array(20), () => Array(10).fill(0)); // 20 rows, 10 columns
+
+        function draw() {
+            // Drawing logic for Tetris blocks
+        }
+
+        function update() {
+            // Update game state
+        }
+
+        function gameLoop() {
+            update();
+            draw();
+            requestAnimationFrame(gameLoop);
+        }
+
+        gameLoop(); // Start the game
+    </script>
+</body>
+</html>
